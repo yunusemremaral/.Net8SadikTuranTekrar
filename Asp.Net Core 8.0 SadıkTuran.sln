@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.Net Core 8.0 SadıkTuran", "Asp.Net Core 8.0 SadıkTuran\Asp.Net Core 8.0 SadıkTuran.csproj", "{0BA4A51F-8C77-4ECE-A916-FFA184CF6E7C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingApp", "MeetingApp\MeetingApp.csproj", "{B5BB8AAD-E31F-4849-8384-DCDF7B1D5EC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormAppProduct", "FormAppProduct\FormAppProduct.csproj", "{2AB75F82-D4B1-4D64-AB90-2165FBAFCF93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B5BB8AAD-E31F-4849-8384-DCDF7B1D5EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5BB8AAD-E31F-4849-8384-DCDF7B1D5EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5BB8AAD-E31F-4849-8384-DCDF7B1D5EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB75F82-D4B1-4D64-AB90-2165FBAFCF93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB75F82-D4B1-4D64-AB90-2165FBAFCF93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB75F82-D4B1-4D64-AB90-2165FBAFCF93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB75F82-D4B1-4D64-AB90-2165FBAFCF93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
