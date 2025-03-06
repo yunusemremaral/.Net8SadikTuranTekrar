@@ -3,6 +3,10 @@ builder.Services.AddControllersWithViews(); // mvc þablonu tanýtma
 
 var app = builder.Build();
 
+app.UseStaticFiles(); // wwwroot calýsmasý
+
+app.UseRouting();
+
 
 // app.MapDefaultControllerRoute();// eskiden gördügümüz default þema 
 app.MapControllerRoute(
