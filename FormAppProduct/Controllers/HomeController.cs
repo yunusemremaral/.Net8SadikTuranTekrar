@@ -50,10 +50,10 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> Create(Product model, IFormFile imageFile)
     {
-        var extension = "";
+        var extension = "";  // random isim oluþturma ve path alma vb ! 
         if (imageFile != null)
         {
-            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" }; 
             extension = Path.GetExtension(imageFile.FileName); // abc.jpg
 
             if (!allowedExtensions.Contains(extension))
@@ -66,9 +66,9 @@ public class HomeController : Controller
         {
             if (imageFile != null)
             {
-                var randomFileName = string.Format($"{Guid.NewGuid().ToString()}{extension}");
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", randomFileName);
-                using (var stream = new FileStream(path, FileMode.Create))
+                var randomFileName = string.Format($"{Guid.NewGuid().ToString()}{extension}"); // benzersiz isim 
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", randomFileName); // yol verme
+                using (var stream = new FileStream(path, FileMode.Create))  // dosyayý yazma 
                 {
                     await imageFile.CopyToAsync(stream);
                 }
