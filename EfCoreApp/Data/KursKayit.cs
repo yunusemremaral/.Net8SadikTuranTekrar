@@ -8,7 +8,7 @@ namespace EfCoreApp.Data
         public int KayitId { get; set; }
 
         public int OgrenciId { get; set; }
-        public Ogrenci Ogrenci { get; set; }  = null!;  // iliþkiler 
+        public Ogrenci Ogrenci { get; set; }  = null!;  // iliþkiler  ULASIYORUZ ARDINDAN ! 
         
         public int KursId { get; set; }
         public Kurs Kurs { get; set; } = null!; // iliþkiler 

@@ -1,0 +1,26 @@
+﻿@model Ogrenci
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Ogrenci" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="OgrenciAd" class="form-control">Ogrenci Adı</label>
+        <input type="text" asp-for="OgrenciAd" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="OgrenciSoyad" class="form-control">Ogrenci Soyad</label>
+        <input type="text" asp-for="OgrenciSoyad" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Eposta" class="form-control">Ogrenci E-posta</label>
+        <input type="text" asp-for="Eposta" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Telefon" class="form-control">Ogrenci Telefon</label>
+        <input type="text" asp-for="Telefon" class="form-control">
+    </div>
+    <button type="submit">Kaydet</button>
+</form>
+

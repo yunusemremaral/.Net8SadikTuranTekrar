@@ -6,7 +6,9 @@ namespace EfCoreApp.Data
     {
         [Key]
         public int OgretmenId { get; set; }
+        [Display(Name = "Adý")]
         public string? Ad { get; set; }
+        [Display(Name = "Soyadý")]
         public string? Soyad { get; set; }
         public string AdSoyad { 
             get 
@@ -20,6 +22,6 @@ namespace EfCoreApp.Data
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = false)]
         public DateTime BaslamaTarihi { get; set; }
-        public ICollection<Kurs> Kurslar { get; set; } = new List<Kurs>();
+        public ICollection<Kurs> Kurslar { get; set; } = new List<Kurs>();  //KURS 
     }
 }
