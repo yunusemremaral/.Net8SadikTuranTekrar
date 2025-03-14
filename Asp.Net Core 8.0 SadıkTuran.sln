@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormAppProduct", "FormAppPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCoreApp", "EfCoreApp\EfCoreApp.csproj", "{F75B4C3B-D6C7-41BD-91CF-DB2D35AB6CA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp", "BlogApp\BlogApp.csproj", "{F4CED4C5-EB7E-47D6-A73B-5BD230AE9681}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F75B4C3B-D6C7-41BD-91CF-DB2D35AB6CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F75B4C3B-D6C7-41BD-91CF-DB2D35AB6CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F75B4C3B-D6C7-41BD-91CF-DB2D35AB6CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4CED4C5-EB7E-47D6-A73B-5BD230AE9681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4CED4C5-EB7E-47D6-A73B-5BD230AE9681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4CED4C5-EB7E-47D6-A73B-5BD230AE9681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4CED4C5-EB7E-47D6-A73B-5BD230AE9681}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
