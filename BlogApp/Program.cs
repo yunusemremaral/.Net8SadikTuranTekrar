@@ -9,8 +9,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BlogContext>(options =>
 {
     var config = builder.Configuration;
-    var con = config.GetConnectionString("sqlite_connection");
-    options.UseSqlite(con);
+    var con = config.GetConnectionString("mysql_connection");
+    //options.UseSqlite(con);
+    var version = new MySqlServerVersion(new Version(8,0,41));
+    options.UseMySql(con,version);
 });
 var app = builder.Build();
 
