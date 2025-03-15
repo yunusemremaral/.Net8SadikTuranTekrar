@@ -9,9 +9,9 @@ namespace BlogApp.Models
         [Display(Name = "Username")]
         public string? UserName { get; set; }
 
-        [Required]
-        [Display(Name = "Ad Soyad")]
-        public string? Name { get; set; }
+            [Required]
+            [Display(Name = "Ad Soyad")]
+            public string? Name { get; set; }
 
         [Required]
         [EmailAddress]

@@ -31,8 +31,8 @@ namespace BlogApp.Data.Db
                 if (!context.Users.Any())
                 {
                     context.Users.AddRange(
-                        new User { UserName = "sadikturan", Name = "Sadık Turan", Email = "info@sadikturan.com", Password = "123456", Image = "p1.jpg" },
-                        new User { UserName = "cinarturan", Name = "Çınar Turan", Email = "info@cinarturan.com", Password = "123456", Image = "p2.jpg" }
+                        new User { UserName = "yunusemre", Name = "Yunus Emre", Email = "yunusemre@gmail.com", Password = "123456", Image = "p1.jpg" },
+                        new User { UserName = "maralemre", Name = "maralemre", Email = "maralemre@gmail.com", Password = "123456", Image = "p2.jpg" }
                     );
                     context.SaveChanges();
                 }
