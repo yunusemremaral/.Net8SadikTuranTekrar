@@ -79,7 +79,7 @@ namespace BlogApp.Controllers
                     userClaims.Add(new Claim(ClaimTypes.GivenName, isUser.Name ?? ""));
                     userClaims.Add(new Claim(ClaimTypes.UserData, isUser.Image ?? ""));
 
-                    if(isUser.Email == "yunusemre@gmail..com")
+                    if(isUser.Email == "yunusemre@gmail.com")
                     {
                         userClaims.Add(new Claim(ClaimTypes.Role, "admin"));
                     } 
