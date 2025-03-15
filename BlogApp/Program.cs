@@ -18,6 +18,8 @@ builder.Services.AddDbContext<BlogContext>(options =>
 });
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
 var app = builder.Build();
@@ -39,13 +41,16 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "post-details",
-    pattern: "post/{url}",
-    defaults: new
-    {
-        controller = "Posts",
-        action = "Details"
-    });
+    name: "post_details",
+    pattern: "posts/details/{url}",
+    defaults: new { controller = "Posts", action = "Details" }
+);
+
+app.MapControllerRoute(
+    name: "posts_by_tag",
+    pattern: "posts/tag/{tag}",
+    defaults: new { controller = "Posts", action = "Index" }
+);
 
 app.MapControllerRoute(
     name: "default",
