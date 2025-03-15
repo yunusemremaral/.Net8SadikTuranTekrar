@@ -1,4 +1,4 @@
-﻿@model PostsViewModel2
+﻿@model PostsViewModel
 
 <div class="row">
     <div class="col-lg-8">
@@ -12,7 +12,7 @@
                             <img src="~/img/@post.Image" class="img-fluid rounded" alt="">
                         </div>
                         <div class="col-8">
-                            <h5><a href="/posts/details/@post.Url" class="btn-link fw-bold">@post.Title</a></h5>
+                            <h5><a href="/post/details/@post.Url" class="btn-link fw-bold">@post.Title</a></h5>
                             <p>@post.Description</p>
                         </div>
                     </div>
@@ -29,14 +29,8 @@
         </div>
     </div>
     <div class="col-lg-4">
-        <div class="card">
-
-
-            @foreach(var tag in Model.Tags)
-            {
-                <h5 class="border-2">@tag.Text</h5>
-            }
-    </div>
+        <vc:tags-menu></vc:tags-menu>
+        <vc:new-post></vc:new-post>
     </div>
 
 </div>
