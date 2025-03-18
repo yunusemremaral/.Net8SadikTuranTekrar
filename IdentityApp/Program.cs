@@ -10,9 +10,26 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<IdentityContext>(options =>
     options.UseSqlite(builder.Configuration["ConnectionStrings:DefaultConnection"]));
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+
+builder.Services.AddIdentity<AppUser, AppRole>()
     .AddEntityFrameworkStores<IdentityContext>();
 
+
+builder.Services.Configure<IdentityOptions>(options => {
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireDigit = false;
+
+    options.User.RequireUniqueEmail = true;
+    // options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz";
+
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+
+    options.SignIn.RequireConfirmedEmail = true;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -35,4 +52,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+IdentitySeedData.IdentityTestUser(app);
 app.Run();
