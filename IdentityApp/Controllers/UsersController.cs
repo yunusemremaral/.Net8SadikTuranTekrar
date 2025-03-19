@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IdentityApp.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class UsersController : Controller
     {
         private UserManager<AppUser> _userManager;
@@ -22,7 +23,6 @@ namespace IdentityApp.Controllers
             return View(_userManager.Users);
         }
 
-       
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -105,6 +105,7 @@ namespace IdentityApp.Controllers
 
             return RedirectToAction("Index");
         }
+
     }
 
 }
