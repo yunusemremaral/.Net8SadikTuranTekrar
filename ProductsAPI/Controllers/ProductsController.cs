@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ProductsAPI.DTO;
 using ProductsAPI.Models;
 
 namespace ProductsAPI.Controllers
@@ -114,8 +115,19 @@ namespace ProductsAPI.Controllers
             }
             return NoContent();
         }
+        private static ProductDTO ProductToDTO(Product p)
+        {
+            var entity = new ProductDTO();
+            if (p != null)
+            {
+                entity.ProductId = p.ProductId;
+                entity.ProductName = p.ProductName;
+                entity.Price = p.Price;
+            }
+            return entity;
+        }
 
-       
+
     }
 
 
