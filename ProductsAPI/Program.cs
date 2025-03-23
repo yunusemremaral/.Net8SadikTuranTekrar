@@ -6,9 +6,18 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ProductsAPI.Models;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options => {
+    options.AddPolicy(MyAllowSpecificOrigins,
+    policy => {
+        policy.AllowAnyOrigin()         //WithOrigins("http://127.0.0.1:5500")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
 
 builder.Services.AddDbContext<ProductsContext>(x => x.UseSqlite("Data Source=products.db"));
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<ProductsContext>();
@@ -47,7 +56,7 @@ builder.Services.AddAuthentication(x => {
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(option =>   // sadece bu  postman gibi header ekleme kýsmý eklendi ... 
+builder.Services.AddSwaggerGen(option =>   // sadece b
 {
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
     option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
