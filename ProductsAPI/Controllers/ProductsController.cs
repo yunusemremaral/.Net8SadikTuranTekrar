@@ -23,7 +23,7 @@ namespace ProductsAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
-            var products = await _context.Products.Where(i => i.IsActive).ToListAsync();
+            var products = await _context.Products.Where(i => i.IsActive).Select(p => ProductToDTO(p)).ToListAsync();
             return Ok(products);
         }
 
@@ -37,7 +37,7 @@ namespace ProductsAPI.Controllers
                 return NotFound();
             }
 
-            var p = await _context.Products.Where(i => i.ProductId == id).FirstOrDefaultAsync();
+            var p = await _context.Products.Where(i => i.ProductId == id).Select(p => ProductToDTO(p)).FirstOrDefaultAsync();
 
             if (p == null)
             {
@@ -115,6 +115,7 @@ namespace ProductsAPI.Controllers
             }
             return NoContent();
         }
+
         private static ProductDTO ProductToDTO(Product p)
         {
             var entity = new ProductDTO();
@@ -126,8 +127,6 @@ namespace ProductsAPI.Controllers
             }
             return entity;
         }
-
-
     }
 
 
