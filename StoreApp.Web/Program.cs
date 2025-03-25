@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using StoreApp.Data.Abstract;
 using StoreApp.Data.Concrete;
+using StoreApp.Web.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
 
 builder.Services.AddDbContext<StoreDbContext>(options => {
@@ -22,6 +24,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+app.MapControllerRoute("products_in_category", "products/{category?}", new { controller = "Home", action = "Index" });
+app.MapControllerRoute("product_details", "{name}", new { controller = "Home", action = "Details" });
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
