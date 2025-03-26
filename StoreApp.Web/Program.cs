@@ -10,13 +10,13 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
-builder.Services.AddDbContext<StoreDbContext>(options =>
-{
+builder.Services.AddDbContext<StoreDbContext>(options => {
     options.UseSqlite(builder.Configuration["ConnectionStrings:StoreDbConnection"], b => b.MigrationsAssembly("StoreApp.Web"));
 });
 
 builder.Services.AddScoped<IStoreRepository, EFStoreRepository>();
-builder.Services.AddDistributedMemoryCache();
+builder.Services.AddScoped<IOrderRepository, EfOrderRepository>();
+builder.Services.AddDistributedMemoryCache();  // session eklenilmesi 
 builder.Services.AddSession();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

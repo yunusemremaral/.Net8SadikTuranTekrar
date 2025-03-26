@@ -2,14 +2,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace StoreApp.Data.Concrete;
 
-public class StoreDbContext:DbContext
+public class StoreDbContext : DbContext
 {
-    public StoreDbContext(DbContextOptions<StoreDbContext> options): base(options)
+    public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options)
     {
     }
 
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Category> Categories => Set<Category>();
+    public DbSet<Order> Orders { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -24,7 +25,7 @@ public class StoreDbContext:DbContext
             .HasIndex(u => u.Url)
             .IsUnique();
 
-        modelBuilder.Entity<Product>().HasData(  // Data seeding 
+        modelBuilder.Entity<Product>().HasData(
             new List<Product>() {
                 new() { Id=1, Name="Samsung S24", Price=50000, Description="güzel telefon"},
                 new() { Id=2, Name="Samsung S25", Price=60000, Description="güzel telefon"},
@@ -39,7 +40,7 @@ public class StoreDbContext:DbContext
             new List<Category>() {
                 new () { Id = 1,  Name = "Telefon", Url = "telefon"},
                 new () { Id = 2,  Name = "Elektronik", Url = "elektronik"},
-                new () { Id = 3,  Name = "Beyaz Eşya", Url = "beyaz-esya"}  
+                new () { Id = 3,  Name = "Beyaz Eşya", Url = "beyaz-esya"}  // extension method, slug dotnet 
             }
         );
 

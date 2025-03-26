@@ -27,12 +27,12 @@ public class EFStoreRepository : IStoreRepository
 
     public IEnumerable<Product> GetProductsByCategory(string category, int page, int pageSize)
     {
-        var products = Products; 
+        var products = Products;
 
-        if(!string.IsNullOrEmpty(category))
+        if (!string.IsNullOrEmpty(category))
         {
             products = products.Include(p => p.Categories).Where(p => p.Categories.Any(a => a.Url == category));
-        }   
+        }
 
         return products.Skip((page - 1) * pageSize).Take(pageSize);
     }
